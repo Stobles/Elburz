@@ -1811,6 +1811,7 @@ body.lock {
   -webkit-transform: translateY(50%);
           transform: translateY(50%);
   position: relative;
+  z-index: 5;
 }
 .career__title p {
   margin: 0;
@@ -1888,6 +1889,8 @@ body.lock {
           flex: 1;
   height: 465px;
   background: linear-gradient(172.5deg, #343434 5.81%, #26272C 121.02%);
+  z-index: 1;
+  opacity: 0;
 }
 .career__body--inner {
   display: -webkit-box;
@@ -2348,6 +2351,11 @@ body.lock {
           align-items: center;
   min-width: 240px;
 }
+.footer__mail {
+  -webkit-transform: translateY(80px);
+          transform: translateY(80px);
+  opacity: 0;
+}
 .footer__mail--img {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2380,6 +2388,16 @@ body.lock {
   .footer__mail--link {
     font-size: calc(14px + 14 * ((100vw - 320px) / 810));
   }
+}
+.footer__telephone {
+  -webkit-transform: translateY(-80px);
+          transform: translateY(-80px);
+  opacity: 0;
+}
+.footer__skype {
+  -webkit-transform: translateY(80px);
+          transform: translateY(80px);
+  opacity: 0;
 }
 .footer__links {
   position: relative;
@@ -2425,6 +2443,7 @@ body.lock {
   margin: -3px -1px 0px -2px;
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
+  z-index: 10;
 }
 @media (max-width: 1130px) {
   .footer__links--item {
@@ -2439,13 +2458,29 @@ body.lock {
 @media (any-hover: hover) {
   .footer__links--item:hover {
     border-color: #FBD462;
-    z-index: 10;
+    z-index: 15;
   }
+}
+.footer__links--item--instagram {
+  -webkit-transform: translateY(50px);
+          transform: translateY(50px);
+  opacity: 0;
+}
+.footer__links--item--facebook {
+  -webkit-transform: translateY(50px);
+          transform: translateY(50px);
+  opacity: 0;
+}
+.footer__links--item--facebook2 {
+  -webkit-transform: translateY(50px);
+          transform: translateY(50px);
+  opacity: 0;
 }
 .footer__links--item--transform {
   border: 3px solid #CCCCCC;
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
+  -webkit-transform: translateY(-130%);
+          transform: translateY(-130%);
+  opacity: 0;
   margin: 0px -1px -3px -2px;
 }
 .footer__links--item--img {
