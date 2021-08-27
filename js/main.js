@@ -29,7 +29,6 @@ window.addEventListener('scroll', ()=>{
 
 window.addEventListener('load', ()=>{
     if(!(innovateH - window.scrollY/2 + 100 < 0)){
-        console.log(window.scrollY)
         innovate.style.height = innovateH - window.scrollY/1.6 + 100 + 'px'
     }
     else{
@@ -37,44 +36,44 @@ window.addEventListener('load', ()=>{
     }
 })
 
+window.addEventListener('resize', ()=>{
+    if(!(innovateH - window.scrollY/2 + 100 < 0)){
+        console.log(window.scrollY)
+        innovate.style.height = innovateH - window.scrollY/1.6 + 100 + 'px'
+    }
+})
 
-// const animBlock = document.querySelector('.innovate')
-// let animBlockHeightFixed = animBlock.clientHeight
-// let animBlockHeightAction
+window.addEventListener('resize',()=>{
+    if(window.innerWidth > 480){
+        const paddingTop = parseInt(window.getComputedStyle(headerWrapper,null).getPropertyValue('padding-top'),10);
+        const paddingBottom = parseInt(window.getComputedStyle(headerWrapper,null).getPropertyValue('padding-bottom'),10);
+        const paddingTopHeight = headerWrapper.clientHeight - paddingTop - paddingBottom;
+        burgerInner.style.paddingTop = paddingTopHeight + 'px'
+    
+        window.addEventListener('resize', ()=>{
+            const paddingTopHeight = headerWrapper.clientHeight - paddingTop - paddingBottom;
+            burgerInner.style.paddingTop = paddingTopHeight + 'px'
+        })
+    }
+})
 
-
-
-// window.addEventListener('scroll', ()=>{
-//     window.addEventListener('load', ()=>{
-//         let animBlockOffsetTop = animBlock.getBoundingClientRect().top;
-//         let animBlockHeightScroll = animBlockHeightFixed + (animBlockOffsetTop -
-//         250) - 200;
-            
-//         animBlock.style.height = animBlockHeightScroll +'px'
-//     })
-
-//     window.addEventListener('resize', ()=>{
-//         let animBlockOffsetTop = animBlock.getBoundingClientRect().top;
-//         let animBlockHeightScroll = animBlockHeightFixed + (animBlockOffsetTop -
-//             250) - 200;
-            
-//         animBlock.style.height = animBlockHeightScroll +'px'
-
-//     })
-// })
+window.addEventListener('load',()=>{
+    if(window.innerWidth > 480){
+        const paddingTop = parseInt(window.getComputedStyle(headerWrapper,null).getPropertyValue('padding-top'),10);
+        const paddingBottom = parseInt(window.getComputedStyle(headerWrapper,null).getPropertyValue('padding-bottom'),10);
+        const paddingTopHeight = headerWrapper.clientHeight - paddingTop - paddingBottom;
+        burgerInner.style.paddingTop = paddingTopHeight + 'px'
+    
+        window.addEventListener('resize', ()=>{
+            const paddingTopHeight = headerWrapper.clientHeight - paddingTop - paddingBottom;
+            burgerInner.style.paddingTop = paddingTopHeight + 'px'
+        })
+    }
+})
 
 const headerWrapper = document.querySelector('.header__wrapper')
 const burger = document.querySelector('.header__burger')
 const burgerInner = document.querySelector('.header__burger--menu--inner')
-const paddingTop = parseInt(window.getComputedStyle(headerWrapper,null).getPropertyValue('padding-top'),10);
-const paddingBottom = parseInt(window.getComputedStyle(headerWrapper,null).getPropertyValue('padding-bottom'),10);
-const paddingTopHeight = headerWrapper.clientHeight - paddingTop - paddingBottom;
-burgerInner.style.paddingTop = paddingTopHeight + 'px'
-
-window.addEventListener('resize', ()=>{
-    const paddingTopHeight = headerWrapper.clientHeight - paddingTop - paddingBottom;
-    burgerInner.style.paddingTop = paddingTopHeight + 'px'
-})
 
 document.addEventListener('click', (e)=>{
     if(e.target.classList.contains('header__burger--btn') || e.target.closest('.header__burger--btn')){
@@ -88,6 +87,8 @@ document.addEventListener('click', (e)=>{
 
 
 // GSAP //
+
+const instagramH = document.querySelector('.footer__links--item--transform').clientHeight
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -272,7 +273,7 @@ gsap.to(".footer__links--item--transform", {
         trigger: ".footer__links--item--telegram",
         start: '-1900'
     },
-    y: -60,
+    y: -instagramH + -6,
     opacity: 1,
     duration: 1,
     delay: .6

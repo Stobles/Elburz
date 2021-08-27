@@ -1,52 +1,31 @@
 
-new Swiper('.works__cards--container',{
-    observer: true,
-    observeParents: true,
-    freeMode: true,
-    slidesPerView: 2,
-    spaceBetween: 15,
-    slidesPerGroup: 2,
-});
+new Swiper('.achievements__slider--container',{
+  initialSlide: 2,
+  centeredSlides: true,
+  slidesPerView: 3,
+  loop: true,
 
-new Swiper('.ourworks__swiper--container', {
-    observer: true,
-    observeParents: true,
-    navigation: {
-        nextEl: '.ourworks__next',
-        prevEl: '.ourworks__prev',
-      },
+  breakpoints:{
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 40,
+    }, 
 
-      loop: true,
+    300: {
+      slidesPerView: 1.61
+    },
 
-      pagination: {
-        el: '.ourworks__pagination',
-        dynamicBullets: true,
-      },
-      centeredSlides: true,
-      watchSlidesProgress: true
-});
+    380:{
+      slidesPerView: 1.9
+    },
+    
+    450:{
+      slidesPerView: 2.5,
+      spaceBetween: 40
+    },
 
-new Swiper('.comments__slide--container', {
-    initialSlide: 2,
-    centeredSlides: true,
-    slidesPerView: 3,
-    loop: true,
-    pagination: {
-        el: '.comments__pagination',
-      },
-
-      breakpoints:{
-        0: {
-          slidesPerView: 1,
-          spaceBetween: 40,
-        }, 
-
-        767:{
-          slidesPerView: 2,
-        }, 
-
-        1055:{
-          slidesPerView: 3
-        }
-      }
+    650:{
+      slidesPerView: 3
+    }
+  }
 });

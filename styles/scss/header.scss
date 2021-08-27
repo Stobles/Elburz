@@ -8,8 +8,8 @@
     &__wrapper{
         display: flex;
         justify-content: space-between;
-        padding-top: 48px;
-        padding-bottom: 48px;
+        @include adaptiv-value('padding-top',48,20,1);
+        @include adaptiv-value('padding-bottom',48,20,1);
         padding-left: 3px;
         padding-right: 16px;
         @media(min-width: $md2+px){
@@ -18,6 +18,7 @@
     }
 
     &__logo{
+        z-index: 100000000;
         @media(max-width: $md2+px){
             background-image: none!important;
         }
@@ -26,11 +27,8 @@
             padding: 0px 0px 77px / 1130px * 100% 0px;
         }
         img{
-            width: 80%;
-
-            @media(max-width: $md4+px){
-                width: 70%;
-            }
+            width: 90%;
+            height: 90%;
         }
     }
 
@@ -39,7 +37,7 @@
         display: flex;
         align-items: center;
         @include adaptiv-value('gap',20,10,1);
-        z-index: 1000000;
+        z-index: 10000;
 
         &.active{
             .header__burger--name{
@@ -80,21 +78,29 @@
                 gap: 15px;
             }
 
-            .header__burger--menu{
-                height: 477px;
-                opacity: 1;
-                visibility: visible;
+            @media(min-width: $md4+px){
+                .header__burger--menu{
+                    height: 477px;
+                    opacity: 1;
+                    visibility: visible;
+                }
+    
+                .header__burger--items{
+                    opacity: 1;
+                    &::after{
+                        height: 1px;
+                        transition: .3s ease .2s;
+                    }
+    
+                    &::before{
+                        height: 1px;
+                    }
+                }
             }
 
-            .header__burger--items{
-                opacity: 1;
-                &::after{
-                    height: 1px;
-                    transition: .3s ease .2s;
-                }
-
-                &::before{
-                    height: 1px;
+            @media(max-width: $md4+px){
+                .header__burger--menu{
+                    transform: translateX(0%);
                 }
             }
         }
@@ -122,7 +128,7 @@
             }
         }
         &--name{
-            @include adaptiv-value('font-size',19,15,1);
+            font-size: 20px;
             color: #000000;
             margin: -5px 0px 0px 0px;
             transition: .3s ease;
@@ -160,19 +166,41 @@
             right: -40%;
             width: 335px;
             height: 0;
-            opacity: 0;
-            visibility: hidden;
             background: linear-gradient(195.03deg, #4D4D51 -6.72%, #26272C 136.1%);
-            border-radius: 10px;
+            @media(min-width: $md4+px){
+                border-radius: 10px;
+                visibility: hidden;
+                opacity: 0;
+            }
             transform-origin: top;
             transition: opacity .3s ease, height .6s ease, visibility .6s ease;
+            transition: .3s ease;
             margin: 0px 20px 0px 0px;
+
+            @media(max-width: $md4+px){
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                width: 100vw;
+                height: 100vh;
+                transform: translateX(100%);
+            }
 
             &--inner{
                 display: flex;
                 flex-direction: column;
-                padding-left: 20px;
-                padding-right: 20px;
+                @media(min-width: $md4+px){
+                    padding-left: 20px;
+                    padding-right: 20px;
+                }
+
+                @media(max-width: $md4+px){
+                    padding-top: 110px!important;
+                    padding-right: 20px;
+                    padding-bottom: 110px;
+                    padding-left: 20px;
+                }
                 height: 100%;
             }
         }
@@ -186,34 +214,53 @@
             padding: 45px 0px;
             position: relative;
             transition: .3s ease;
-            opacity: 0;
 
-            &::before{
-                content: '';
-                position: absolute;
-                background-color: #5B5B5B;
-                width: 100%;
-                height: 0;
-                top: 0;
-                left: 0;
+            @media(min-width: $md2+px){
+                opacity: 0;
             }
 
-            &::after{
-                content: '';
-                position: absolute;
-                background-color: #5B5B5B;
-                width: 100%;
-                height: 0;
-                bottom: 0;
-                left: 0;
-                transition: 0s;
+            @media(max-width: $md4+px){
+                border-top: 2px solid #5B5B5B;
+                border-bottom: 2px solid #5B5B5B;
+            }
+
+            @media(min-width: $md4+px){
+                &::before{
+                    content: '';
+                    position: absolute;
+                    background-color: #5B5B5B;
+                    width: 100%;
+                    height: 0;
+                    top: 0;
+                    left: 0;
+                }
+    
+                &::after{
+                    content: '';
+                    position: absolute;
+                    background-color: #5B5B5B;
+                    width: 100%;
+                    height: 0;
+                    bottom: 0;
+                    left: 0;
+                    transition: 0s;
+                }
             }
         }
 
         &--item{
-            font-size: 24px;
+            @include adaptiv-value('font-size',24,18,1);
             color: #fff;
             font-family: $font-family-MontserratMedium;
+            @media(max-width: $md4+px){
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #4F4F57;
+                width: 217px;
+                height: 45px;
+                border-radius: 8px;
+            }
         }
 
         &--social{
@@ -224,6 +271,14 @@
             padding: 28px 0px;
 
             &--link{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 28px;
+                height: 30px;
+                svg{
+                    width: 150%;
+                }
                 transition: .3s ease;
                 @media(any-hover:hover){ 
                     &:hover{
