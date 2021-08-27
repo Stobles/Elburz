@@ -249,7 +249,7 @@ body.lock {
 }
 @media (max-width: 479.98px) {
   .header__logo img {
-    width: 59px;
+    width: 70%;
   }
 }
 .header__burger {
@@ -734,7 +734,7 @@ body.lock {
 }
 @media (max-width: 479.98px) {
   .innovate {
-    height: 282px;
+    height: 600px;
   }
 }
 .innovate svg {
