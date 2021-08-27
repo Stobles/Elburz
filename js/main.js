@@ -18,30 +18,40 @@ window.addEventListener('resize', ()=>{
     }
 })
 
-const innovate = document.querySelector('.innovate')
-const innovateH = innovate.clientHeight
+window.addEventListener('load', animInnovate)
 
-window.addEventListener('scroll', ()=>{
-    if(!(innovateH - window.scrollY/2 + 100 < 0)){
-        innovate.style.height = innovateH - window.scrollY/1.6 + 100 + 'px'
-    }
-})
+function animInnovate() {
+    const innerW = window.innerWidth
 
-window.addEventListener('load', ()=>{
-    if(!(innovateH - window.scrollY/2 + 100 < 0)){
-        innovate.style.height = innovateH - window.scrollY/1.6 + 100 + 'px'
+    if (innerW > 992) {
+        const innovate = document.querySelector('.innovate')
+        const innovateH = innovate.clientHeight
+    
+        window.addEventListener('scroll', ()=>{
+            if(!(innovateH - window.scrollY/2 + 100 < 0)){
+                innovate.style.height = innovateH - window.scrollY/1.6 + 100 + 'px'
+            }
+        })
+    
+        window.addEventListener('load', ()=>{
+            if(!(innovateH - window.scrollY/2 + 100 < 0)){
+                innovate.style.height = innovateH - window.scrollY/1.6 + 100 + 'px'
+            }
+            else{
+                innovate.style.height = '0px'
+            }
+        })
+    
+        window.addEventListener('resize', ()=>{
+            if(!(innovateH - window.scrollY/2 + 100 < 0)){
+                console.log(window.scrollY)
+                innovate.style.height = innovateH - window.scrollY/1.6 + 100 + 'px'
+            }
+        })
+    
     }
-    else{
-        innovate.style.height = '0px'
-    }
-})
+}
 
-window.addEventListener('resize', ()=>{
-    if(!(innovateH - window.scrollY/2 + 100 < 0)){
-        console.log(window.scrollY)
-        innovate.style.height = innovateH - window.scrollY/1.6 + 100 + 'px'
-    }
-})
 
 window.addEventListener('resize',()=>{
     if(window.innerWidth > 480){
