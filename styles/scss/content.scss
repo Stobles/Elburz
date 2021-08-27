@@ -163,7 +163,7 @@ $color: #555;
 
 .innovate{
     background: radial-gradient(ellipse at center, $color 0%, darken($color, 30%) 100%);
-    height: 700px;
+    height: 800px;
     @media(max-width: $md3+px){
         height: 600px;
     }
@@ -209,7 +209,7 @@ $color: #555;
             &:nth-child(1){
                 @include adaptiv-value('font-size',67,33,1);
                 font-family: $font-family-MontserratMedium;
-                color: #FBD462;
+                color: $yellowColor;
                 @media(max-width: $md4+px){
                     margin: 0px 0px -5px 0px;
                 }
@@ -218,7 +218,7 @@ $color: #555;
             &:nth-child(2){
                 @include adaptiv-value('font-size',132,69,1);
                 font-family: $font-family-MontserratBlack;
-                color: #FBD462;
+                color: $yellowColor;
                 line-height: .87;
             }
 
@@ -270,7 +270,7 @@ $color: #555;
 
         span{
             position: absolute;
-            background-color: #FBD462;
+            background-color: $yellowColor;
             transform-origin: left;
         }
 
@@ -460,6 +460,8 @@ $color: #555;
         &--title{
             max-width: 400px;
             margin: 0px 0px 0px 93px;
+            transform: translateX(-300px);
+            opacity: 0;
         }
 
         &--blocks{
@@ -483,10 +485,11 @@ $color: #555;
                 font-size: 20px;
                 line-height: 17px;
                 color: #000000;
+                opacity: 0;
 
                 span{
                     position: absolute;
-                    background-color: #FBD462;
+                    background-color: $yellowColor;
                     transform-origin: left;
                 }
         
@@ -565,7 +568,7 @@ $color: #555;
 
                 @media(any-hover:hover){ 
                     &:hover{
-                        border: 3px solid #FBD462;
+                        border: 3px solid $yellowColor;
                     }
                 }
 
@@ -578,16 +581,26 @@ $color: #555;
                     font-family: $font-family-MontserratRegular;
                     margin: 0px 0px 78px 0px;
                     max-width: 280px;
-                    span{
+                    p{
                         font-size: 60px;
                         line-height: 73px;
                         text-align: center;
                         color: #B4B4B4;
                         font-family: $font-family-MontserratBold;
+                        opacity: 0;
+                        transition: .3s ease;
                     }
                     font-size: 14px;
                     line-height: 16px;
                     color: #444444;
+                }
+
+                &.active{
+                    .achievements__info--block--minor-text{
+                        p{
+                            opacity: 1;
+                        }
+                    }
                 }
             }
         }
@@ -605,6 +618,7 @@ $color: #555;
                     align-items: center;
                     grid-column: span 2;
                     background-color: #F4F4F4;
+                    opacity: 0;
                 }
 
                 &-left{
@@ -612,7 +626,8 @@ $color: #555;
                     flex-direction: column;
                     justify-content: center;
                     grid-row: span 2;
-                    background-color: #FBD462;
+                    background-color: $yellowColor;
+                    opacity: 0;
                 }
 
                 &-right{
@@ -620,6 +635,7 @@ $color: #555;
                     background-repeat: no-repeat;                   
                     cursor: pointer;
                     transition: .3s ease;
+                    opacity: 0;
 
                     @media(any-hover:hover){ 
                         &:hover{
@@ -630,7 +646,7 @@ $color: #555;
                                 background-color: #fff;
                             }
                             &::before{
-                                background-color: #FBD462;
+                                background-color: $yellowColor;
                             }
                         }
                     }
@@ -702,7 +718,7 @@ $color: #555;
 
                 @media(any-hover:hover){ 
                     &:hover{
-                        transform: translateY(-10px);
+                        transform: translateY(-20px);
                     }
                 }
             }
@@ -739,6 +755,7 @@ $color: #555;
             }
 
             &--btn{
+                width: 55px;
                 height: 30px;
                 span{
                     display: block;
@@ -746,6 +763,7 @@ $color: #555;
                     height: 1px;
                     background-color: #000000;
                     position: relative;
+                    transition: .3s ease;
 
                     &::before{
                         content: '';
@@ -767,6 +785,14 @@ $color: #555;
                         right: 0;
                         transform-origin: right;
                         transform: rotate(-45deg);
+                    }
+                }
+
+                @media(any-hover:hover){ 
+                    &:hover{
+                        span{
+                            transform: translateX(5px);
+                        }
                     }
                 }
             }
@@ -793,6 +819,8 @@ $color: #555;
         line-height: 39px;
         color: #444444;
         padding: 0px 0px 55px 0px;
+        transform: translateX(-200px);
+        opacity: 0;
     }
 
     &__body{
@@ -827,7 +855,7 @@ $color: #555;
 
             span{
                 position: absolute;
-                background-color: #FBD462;
+                background-color: $yellowColor;
                 transform-origin: left;
             }
     
@@ -889,7 +917,8 @@ $color: #555;
             justify-content: center;
             flex: 1;
             height: 430px;
-            background: #FBD462;
+            background: $yellowColor;
+            opacity: 0;
 
             &--inner{
                 display: flex;
@@ -1000,7 +1029,7 @@ $color: #555;
 
         span{
             position: absolute;
-            background-color: #FBD462;
+            background-color: $yellowColor;
             transform-origin: left;
         }
 
@@ -1198,7 +1227,7 @@ $color: #555;
 
             span{
                 position: absolute;
-                background-color: #FBD462;
+                background-color: $yellowColor;
                 transform-origin: left;
             }
     
@@ -1237,19 +1266,19 @@ $color: #555;
     
             &.active{
                 .top{
-                    width: 188px;
+                    width: 168px;
                 }
         
                 .right{
-                    height: 188px;
+                    height: 168px;
                 }
         
                 .left{
-                    height: 188px;
+                    height: 168px;
                 }
         
                 .bottom{
-                    width: 188px;
+                    width: 168px;
                 }
             }
         }

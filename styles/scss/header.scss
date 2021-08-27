@@ -110,12 +110,12 @@
             @media(any-hover:hover){ 
                 &:hover{
                     .header__burger--name{
-                        color: #eb3719;
+                        color: $yellowColor;
                     }
     
                     .header__burger--body{
                         span{
-                            background-color: #eb3719;
+                            background-color: $yellowColor;
                         }
                     }
                 }
