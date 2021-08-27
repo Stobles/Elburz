@@ -1,0 +1,146 @@
+//Миксины//
+
+@import "mixin.scss";
+
+//Шрифты по умолчанию//
+
+@import "fonts.scss";
+
+$font-size: 16;
+
+$font-family-Parisienne: Parisienne;
+$font-family-MontserratBlack: MontserratBlack;
+$font-family-MontserratExtraBold: MontserratExtraBold;
+$font-family-MontserratBold: MontserratBold;
+$font-family-MontserratSemiBold: MontserratSemiBold;
+$font-family-MontserratMedium: MontserratMedium;
+$font-family-MontserratRegular: MontserratRegular;
+$font-family-MontserratThin: MontserratThin;
+$font-family-MontserratLight: MontserratLight;
+
+//Переменные//
+
+$maxWidthContainer: 1130;
+$md1: 1365.98; 
+$md2: 991.98; 
+$md3: 767.98; 
+$md4: 479.98; 
+$mp1: 679.98;
+
+$maincolor: #404040;
+$yellowColor: #FBD462;
+
+//Обнуление//
+
+
+*{box-sizing: border-box;}
+html,body{font-size: 100%;line-height: 1;font-size: 14px;-ms-text-size-adjust: 100%;}
+input,button,textarea{font-family: inherit;}
+input{padding: 0; margin: 0; border: 0; }
+input::-ms-clear{display: none;}
+input:focus{outline: none;}
+button {padding: 0;border: none;font: inherit;color: inherit;background-color: transparent;cursor: pointer;}
+button::-moz-focus-inner{padding: 0; border: 0;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul{padding-inline-start: 0!important;margin: 0;}
+ul li {list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size: inherit; font-weight: inherit;margin: 0;}
+
+// Стили//
+
+html{
+    height: 100%;
+}
+
+body{
+    color: $maincolor;
+    font-family: $font-family-MontserratRegular;
+    font-weight: 300;
+    margin: 0;
+    height: 100%;
+    
+    &.lock{
+        overflow: hidden;
+    }
+}  
+
+#map{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+
+.wrapper{
+    min-height: 100%;
+    overflow: hidden;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    &__icon{
+        position: fixed;
+        right: 10%;
+        bottom: 8%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include adaptiv-value('width',75,40,1);
+        @include adaptiv-value('height',75,40,1);
+        background-color: $yellowColor;
+        box-shadow: 0px 18px 25px rgba(201, 148, 43, 0.336362);
+        border-radius: 4px;
+        animation: wrapperIconAnim 1s infinite;
+        z-index: 10000;
+
+        img{
+            width: 50%;
+        }
+
+        &--img{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.container{
+    max-width: $maxWidthContainer + px;
+    padding: 0 15px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+// Подключение остальных стилей //
+
+@import "header.scss";
+@import "content.scss";
+@import "footer.scss";
+@import "help.scss";
+
+// Анимация // 
+ 
+@keyframes wrapperIconAnim {
+    0%{
+        transform: translateY(0);
+    }
+
+    50%{
+        transform: translateY(5%);
+    }
+
+    100%{
+        transform: translateY(0);
+    }
+}
+
+
+
