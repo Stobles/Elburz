@@ -18,38 +18,24 @@ window.addEventListener('resize', ()=>{
     }
 })
 
-window.addEventListener('load', animInnovate)
+
+
+const innerW = window.innerWidth
+const innovate = document.querySelector('.innovate')
+const innovateH = innovate.clientHeight
+if(innerW > 992){
+    window.addEventListener('load', animInnovate())
+    window.addEventListener('resize', animInnovate)
+    window.addEventListener('scroll', animInnovate)
+}
+
 
 function animInnovate() {
-    const innerW = window.innerWidth
-
-    if (innerW > 992) {
-        const innovate = document.querySelector('.innovate')
-        const innovateH = innovate.clientHeight
-    
-        window.addEventListener('scroll', ()=>{
-            if(!(innovateH - window.scrollY/2 + 100 < 0)){
-                innovate.style.height = innovateH - window.scrollY/1.6 + 100 + 'px'
-            }
-        })
-    
-        window.addEventListener('load', ()=>{
-            if(!(innovateH - window.scrollY/2 + 100 < 0)){
-                innovate.style.height = innovateH - window.scrollY/1.6 + 100 + 'px'
-            }
-            else{
-                innovate.style.height = '0px'
-            }
-        })
-    
-        window.addEventListener('resize', ()=>{
-            if(!(innovateH - window.scrollY/2 + 100 < 0)){
-                console.log(window.scrollY)
-                innovate.style.height = innovateH - window.scrollY/1.6 + 100 + 'px'
-            }
-        })
-    
-    }
+        if(!(innovateH - window.scrollY/2 + 100 < 0)){
+            innovate.style.height = innovateH - window.scrollY/1.6 + 100 + 'px'
+        }else{
+            innovate.style.height = '0px'
+        }
 }
 
 

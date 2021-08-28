@@ -225,6 +225,7 @@ body.lock {
   padding-bottom: 48px;
   padding-left: 3px;
   padding-right: 16px;
+  pointer-events: none;
 }
 @media (max-width: 1130px) {
   .header__wrapper {
@@ -243,6 +244,7 @@ body.lock {
 }
 .header__logo {
   z-index: 100000000;
+  pointer-events: visible;
 }
 @media (max-width: 991.98px) {
   .header__logo {
@@ -271,6 +273,7 @@ body.lock {
           align-items: center;
   gap: 20px;
   z-index: 10000;
+  pointer-events: visible;
 }
 @media (max-width: 1130px) {
   .header__burger {
@@ -702,9 +705,9 @@ body.lock {
   -webkit-transform: translate(24%, 6%);
           transform: translate(24%, 6%);
 }
-.main__logo--body--arrow img {
-  width: 100%;
-  height: 100%;
+.main__logo--body--arrow svg {
+  width: 97%;
+  height: 97%;
 }
 .main__logo--title {
   visibility: visible;
