@@ -1708,7 +1708,13 @@ body.lock {
   }
 }
 .achievements__body--block--info {
+  display: block;
   margin: 100px 0px 0px 0px;
+}
+@media (min-width: 767.98px) {
+  .achievements__body--block--info {
+    display: none;
+  }
 }
 .achievements__body--block--info-title {
   font-family: MontserratMedium;
