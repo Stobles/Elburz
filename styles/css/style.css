@@ -1269,14 +1269,14 @@ body.lock {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: url(../../img/featured/background.webp);
+  background-image: url(../../img/featured/background.png);
   z-index: 1;
 }
 .featured__body--item .img__background--clone {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #c5ab5c url(../../img/featured/background.webp);
+  background: #c5ab5c url(../../img/featured/background.png);
   z-index: 5;
   background-blend-mode: difference;
   opacity: 0;
