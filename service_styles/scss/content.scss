@@ -7,13 +7,18 @@
     &__title{
         display: flex;
 
+        @media(max-width: $md2+px){
+            align-items: center;
+            flex-direction: column;
+        }
+
         &--block{
             position: relative;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            width: 190px;
-            height: 190px;
+            @include adaptiv-value('width',190,170,1);
+            @include adaptiv-value('height',190,170,1);
             border: 3px solid #aaaaaa;
             padding: 30px 24px;
             margin: 0px 0px -3px 0px;
@@ -98,12 +103,22 @@
             flex-direction: column;
             justify-content: space-between;
             margin: 20px 0px 0px 73px;
+
+            @media(max-width: $md2+px){
+                margin: 20px 0px 0px 0px;
+                text-align: center;
+                gap: 40px;
+            }
         }
 
         &--cats{
             display: flex;
             gap: 25px;
             margin: 0px 0px 15px 0px;
+
+            @media(max-width: $md2+px){
+                justify-content: center;
+            }
 
             &--item{
                 font-size: 12px;
@@ -152,7 +167,7 @@
 
         &--text{
             max-width: 430px;
-            font-size: 32px;
+            @include adaptiv-value('font-size',32,20,1);
             line-height: 39px;
             color: #444444;
             transform: translateX(250px);
@@ -164,10 +179,17 @@
         opacity: 0;
         &--inner{
             display: flex;
+            @media(max-width: $maxWidthContainer+px){
+                justify-content: center;
+            }
             gap: 17px;
             row-gap: 17px;
             flex-wrap: wrap;
             padding: 75px 0px 160px 0px;
+
+            @media(max-width: $md2+px){
+                padding: 40px 0px 10px 0px;
+            }
         }
 
         &--item{

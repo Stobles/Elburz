@@ -10,8 +10,11 @@
         display: flex;
         align-items: center;
         flex-direction: column;
-        padding: 65px 0px 160px 0px;
-        border-top: 3px solid #CCCCCC;
+        padding: 80px 0px 160px 0px;
+
+        @media(min-width: $md2+px){
+            border-top: 3px solid #CCCCCC;
+        }
     }
 
     &__title{
@@ -32,10 +35,6 @@
             color: #444444;
             text-align: center;
             line-height: 16px;
-        }
-
-        &--info{
-            
         }
     }
 
@@ -63,7 +62,7 @@
     }
 
     &__mail{
-        transform: translateY(200px);
+        transform: translateY(80px);
         opacity: 0;
         &--img{
             display: flex;
@@ -91,12 +90,12 @@
     }
 
     &__telephone{
-        transform: translateY(-200px);
+        transform: translateY(-80px);
         opacity: 0;
     }
 
     &__skype{
-        transform: translateY(200px);
+        transform: translateY(80px);
         opacity: 0;
     }
 
@@ -141,10 +140,35 @@
                 }
             }
 
+            &--instagram{
+                @media(min-width: $md2+px){
+                    transform: translateY(50px);
+                    opacity: 0;
+                }
+            }
+
+            &--facebook{
+                @media(min-width: $md2+px){
+                    transform: translateY(50px);
+                    opacity: 0;
+                }
+            }
+
+            &--facebook2{
+                @media(min-width: $md2+px){
+                    transform: translateY(50px);
+                    opacity: 0;
+                }
+            }
+
             &--transform{
                 border: 3px solid #CCCCCC;
-                transform: translateY(-130%);
+                transform: translateY(-100%)!important;
                 opacity: 0;
+                @media(min-width: $md2+px){
+                    transform: translateY(-130%);
+                    opacity: 1!important;
+                }
                 margin: 0px -1px -3px -2px;;
             }
 
@@ -163,21 +187,6 @@
                     }
                 }
 
-            }
-
-            &--instagram{
-                transform: translateY(50px);
-                opacity: 0;
-            }
-
-            &--facebook{
-                transform: translateY(50px);
-                opacity: 0;
-            }
-
-            &--facebook2{
-                transform: translateY(50px);
-                opacity: 0;
             }
 
             @media(any-hover:hover){ 
@@ -199,6 +208,7 @@
     &__copyright{
         font-size: 20px;
         color: #444444;
+        text-align: center;
         p{
             margin: 0;
         }
