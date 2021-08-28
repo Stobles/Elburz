@@ -137,24 +137,34 @@
             }
 
             &--instagram{
-                transform: translateY(50px);
-                opacity: 0;
+                @media(min-width: $md2+px){
+                    transform: translateY(50px);
+                    opacity: 0;
+                }
             }
 
             &--facebook{
-                transform: translateY(50px);
-                opacity: 0;
+                @media(min-width: $md2+px){
+                    transform: translateY(50px);
+                    opacity: 0;
+                }
             }
 
             &--facebook2{
-                transform: translateY(50px);
-                opacity: 0;
+                @media(min-width: $md2+px){
+                    transform: translateY(50px);
+                    opacity: 0;
+                }
             }
 
             &--transform{
                 border: 3px solid #CCCCCC;
-                transform: translateY(-130%);
+                transform: translateY(-100%)!important;
                 opacity: 0;
+                @media(min-width: $md2+px){
+                    transform: translateY(-130%);
+                    opacity: 1!important;
+                }
                 margin: 0px -1px -3px -2px;;
             }
 

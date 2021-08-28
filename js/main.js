@@ -18,8 +18,6 @@ window.addEventListener('resize', ()=>{
     }
 })
 
-
-
 const innerW = window.innerWidth
 const innovate = document.querySelector('.innovate')
 const innovateH = innovate.clientHeight
@@ -29,7 +27,6 @@ if(innerW > 992){
     window.addEventListener('scroll', animInnovate)
 }
 
-
 function animInnovate() {
         if(!(innovateH - window.scrollY/2 + 100 < 0)){
             innovate.style.height = innovateH - window.scrollY/1.6 + 100 + 'px'
@@ -37,7 +34,6 @@ function animInnovate() {
             innovate.style.height = '0px'
         }
 }
-
 
 window.addEventListener('resize',()=>{
     if(window.innerWidth > 480){
@@ -81,216 +77,212 @@ document.addEventListener('click', (e)=>{
     }
 })
 
-
 // GSAP //
+gsap.registerPlugin(ScrollTrigger)
 
 const instagramH = document.querySelector('.footer__links--item--transform').clientHeight
 
-gsap.registerPlugin(ScrollTrigger)
+    gsap.to(".main__info--title", {
+        scrollTrigger: {
+            trigger: ".main__info--title",
+        },
+        x: 0,
+        opacity: 1,
+        duration: 1,
+    })
 
-gsap.to(".main__info--title", {
-    scrollTrigger: {
-        trigger: ".main__info--title",
-    },
-    x: 0,
-    opacity: 1,
-    duration: 1,
-})
+    gsap.to(".main__info--subtitle", {
+        scrollTrigger: {
+            trigger: ".main__info--subtitle",
+        },
+        y: 0,
+        opacity: 1,
+        duration: 1,
+    })
 
-gsap.to(".main__info--subtitle", {
-    scrollTrigger: {
-        trigger: ".main__info--subtitle",
-    },
-    y: 0,
-    opacity: 1,
-    duration: 1,
-})
+    gsap.to(".main__logo--body--mountain", {
+        scrollTrigger: {
+            trigger: ".main__logo--body--mountain",
+        },
+        opacity: 1,
+        duration: 1,
+    })
 
-gsap.to(".main__logo--body--mountain", {
-    scrollTrigger: {
-        trigger: ".main__logo--body--mountain",
-    },
-    opacity: 1,
-    duration: 1,
-})
+    gsap.to(".featured__body--item--size-left", {
+        scrollTrigger: {
+            trigger: ".featured__body--item--size-left",
+            start: '-1500',
+        },
+        y: 0,
+        opacity: 1,
+        duration: 1,
+    })
 
-gsap.to(".featured__body--item--size-left", {
-    scrollTrigger: {
-        trigger: ".featured__body--item--size-left",
-        start: '-1500',
-    },
-    y: 0,
-    opacity: 1,
-    duration: 1,
-})
+    gsap.to(".featured__body--item--size-right", {
+        scrollTrigger: {
+            trigger: ".featured__body--item--size-right",
+            start: '-1500',
+        },
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        delay: .4
+    })
 
-gsap.to(".featured__body--item--size-right", {
-    scrollTrigger: {
-        trigger: ".featured__body--item--size-right",
-        start: '-1500',
-    },
-    y: 0,
-    opacity: 1,
-    duration: 1,
-    delay: .4
-})
+    gsap.to(".achievements__info--title", {
+        scrollTrigger: {
+            trigger: ".achievements__info--title",
+            start: '-1600'
+        },
+        x: 0,
+        opacity: 1,
+        duration: 1,
+    })
 
-gsap.to(".achievements__info--title", {
-    scrollTrigger: {
-        trigger: ".achievements__info--title",
-        start: '-1600'
-    },
-    x: 0,
-    opacity: 1,
-    duration: 1,
-})
+    gsap.to(".achievements__info--block--main", {
+        scrollTrigger: {
+            trigger: ".achievements__info--block--main",
+            start: '-1600',
+        },
+        opacity: 1,
+        duration: 1,
+    })
 
-gsap.to(".achievements__info--block--main", {
-    scrollTrigger: {
-        trigger: ".achievements__info--block--main",
-        start: '-1600',
-    },
-    opacity: 1,
-    duration: 1,
-})
+    gsap.to(".achievements__body--block--size-all", {
+        scrollTrigger: {
+            trigger: ".achievements__body--block--size-all",
+            start: '-1660',
+        },
+        opacity: 1,
+        duration: 1,
+    })
 
-gsap.to(".achievements__body--block--size-all", {
-    scrollTrigger: {
-        trigger: ".achievements__body--block--size-all",
-        start: '-1660',
-    },
-    opacity: 1,
-    duration: 1,
-})
+    gsap.to(".achievements__body--block--size-left", {
+        scrollTrigger: {
+            trigger: ".achievements__body--block--size-left",
+            start: '-1680',
+        },
+        opacity: 1,
+        duration: 1,
+    })
 
-gsap.to(".achievements__body--block--size-left", {
-    scrollTrigger: {
-        trigger: ".achievements__body--block--size-left",
-        start: '-1680',
-    },
-    opacity: 1,
-    duration: 1,
-})
+    gsap.to(".achievements__body--block--size-right", {
+        scrollTrigger: {
+            trigger: ".achievements__body--block--size-right",
+            start: '-1680',
+        },
+        opacity: 1,
+        duration: 1,
+        delay: .4,
+    })
 
-gsap.to(".achievements__body--block--size-right", {
-    scrollTrigger: {
-        trigger: ".achievements__body--block--size-right",
-        start: '-1680',
-    },
-    opacity: 1,
-    duration: 1,
-    delay: .4,
-})
+    gsap.to(".inquire__title", {
+        scrollTrigger: {
+            trigger: ".inquire__title",
+            start: '-1300'
+        },
+        x: 200,
+        opacity: 1,
+        duration: 1,
+    })
 
-gsap.to(".inquire__title", {
-    scrollTrigger: {
-        trigger: ".inquire__title",
-        start: '-1300'
-    },
-    x: 200,
-    opacity: 1,
-    duration: 1,
-})
+    gsap.to(".inquire__body--content", {
+        scrollTrigger: {
+            trigger: ".inquire__body--content",
+            start: '-1500'
+        },
+        opacity: 1,
+        duration: 1,
+    })
 
-gsap.to(".inquire__body--content", {
-    scrollTrigger: {
-        trigger: ".inquire__body--content",
-        start: '-1500'
-    },
-    opacity: 1,
-    duration: 1,
-})
+    gsap.to(".career__body", {
+        scrollTrigger: {
+            trigger: ".career__body",
+            start: '-1500'
+        },
+        opacity: 1,
+        duration: 1,
+    })
 
-gsap.to(".career__body", {
-    scrollTrigger: {
-        trigger: ".career__body",
-        start: '-1500'
-    },
-    opacity: 1,
-    duration: 1,
-})
+    gsap.to(".footer__mail", {
+        scrollTrigger: {
+            trigger: ".footer__mail",
+            start: '-1400'
+        },
+        y:0,
+        opacity: 1,
+        duration: 1,
+    })
 
-gsap.to(".footer__mail", {
-    scrollTrigger: {
-        trigger: ".footer__mail",
-        start: '-1400'
-    },
-    y:0,
-    opacity: 1,
-    duration: 1,
-})
+    gsap.to(".footer__telephone", {
+        scrollTrigger: {
+            trigger: ".footer__telephone",
+            start: '-1400'
+        },
+        y:0,
+        opacity: 1,
+        duration: 1,
+        delay: .2
+    })
 
-gsap.to(".footer__telephone", {
-    scrollTrigger: {
-        trigger: ".footer__telephone",
-        start: '-1400'
-    },
-    y:0,
-    opacity: 1,
-    duration: 1,
-    delay: .2
-})
+    gsap.to(".footer__skype", {
+        scrollTrigger: {
+            trigger: ".footer__skype",
+            start: '-1400'
+        },
+        y:0,
+        opacity: 1,
+        duration: 1,
+        delay: .4
+    })
 
-gsap.to(".footer__skype", {
-    scrollTrigger: {
-        trigger: ".footer__skype",
-        start: '-1400'
-    },
-    y:0,
-    opacity: 1,
-    duration: 1,
-    delay: .4
-})
+    gsap.to(".footer__links--item--instagram", {
+        scrollTrigger: {
+            trigger: ".footer__links--item--instagram",
+            start: '-1900'
+        },
+        y:0,
+        opacity: 1,
+        duration: 1,
+        delay: .2
+    })
 
-gsap.to(".footer__links--item--instagram", {
-    scrollTrigger: {
-        trigger: ".footer__links--item--instagram",
-        start: '-1900'
-    },
-    y:0,
-    opacity: 1,
-    duration: 1,
-    delay: .2
-})
+    gsap.to(".footer__links--item--facebook", {
+        scrollTrigger: {
+            trigger: ".footer__links--item--facebook",
+            start: '-1900'
+        },
+        y:0,
+        opacity: 1,
+        duration: 1,
+        delay: .4
+    })
 
-gsap.to(".footer__links--item--facebook", {
-    scrollTrigger: {
-        trigger: ".footer__links--item--facebook",
-        start: '-1900'
-    },
-    y:0,
-    opacity: 1,
-    duration: 1,
-    delay: .4
-})
+    gsap.to(".footer__links--item--transform", {
+        scrollTrigger: {
+            trigger: ".footer__links--item--telegram",
+            start: '-1900'
+        },
+        y: -instagramH + -6,
+        opacity: 1,
+        duration: 1,
+        delay: .6
+    })
 
-gsap.to(".footer__links--item--transform", {
-    scrollTrigger: {
-        trigger: ".footer__links--item--telegram",
-        start: '-1900'
-    },
-    y: -instagramH + -6,
-    opacity: 1,
-    duration: 1,
-    delay: .6
-})
-
-gsap.to(".footer__links--item--facebook2", {
-    scrollTrigger: {
-        trigger: ".footer__links--item--facebook2",
-        start: '-1900'
-    },
-    y:0,
-    opacity: 1,
-    duration: 1,
-    delay: .8
-})
+    gsap.to(".footer__links--item--facebook2", {
+        scrollTrigger: {
+            trigger: ".footer__links--item--facebook2",
+            start: '-1900'
+        },
+        y:0,
+        opacity: 1,
+        duration: 1,
+        delay: .8
+    })
 
 // Скрипт анимации 
 
-
 const animItems = document.querySelectorAll('.anim__items');
-
 
 if (animItems.length > 0) {
     window.addEventListener('scroll', animOnScroll);
@@ -332,7 +324,6 @@ if (animItems.length > 0) {
     setTimeout(animOnScroll, 400);
 }
 
-
 // Анимация Счетчика //
 
 const endNumber = document.querySelector('#end-number')
@@ -362,7 +353,6 @@ function outNum(num, elem) {
     outNumOneTime = true
 };
 
-
 // Подключение Скриптов на мобильном устройстве //
 
 var oneTime = false
@@ -379,7 +369,6 @@ window.addEventListener('resize', ()=>{
         oneTime = true
     }
 })
-
 
 window.addEventListener('load', ()=>{
     if (window.innerWidth < 767) {
