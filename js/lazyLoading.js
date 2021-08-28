@@ -24,9 +24,6 @@ function lazyScroll() {
     if(document.querySelectorAll('[data-src]').length > 0){
         lazyScrollCheck()
     }
-    if(!loadMapBlock.classList.contains('_loaded')){
-        getMap()
-    }
 }
 
 function lazyScrollCheck() {
@@ -40,20 +37,5 @@ function lazyScrollCheck() {
         }
     }
     delete lazyImagesPositions[imgIndex]
-    
-}
-
-function getMap() {
-    const loadMapBlockPos = loadMapBlock.getBoundingClientRect().top + pageYOffset;
-    if(pageYOffset > loadMapBlockPos - windowH){
-        const loadMapUrl = loadMapBlock.dataset.map
-        if(loadMapUrl){
-            loadMapBlock.insertAdjacentHTML(
-                "beforeend",
-                `<iframe src="${loadMapUrl}" style="border:0;" allowfullscreen="" loading="lazy"></iframe>`
-            );
-            loadMapBlock.classList.add('_loaded');
-        }
-    }
     
 }
