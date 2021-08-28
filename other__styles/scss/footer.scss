@@ -1,0 +1,206 @@
+.footer{
+    z-index: 100;
+    background-color: #fff;
+
+    &__container{
+        padding: 0px 32px;
+    }
+
+    &__inner{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 65px 0px 160px 0px;
+        border-top: 3px solid #CCCCCC;
+    }
+
+    &__title{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 23px;
+        margin: 0px 0px 50px 0px;
+        &--text{
+            font-size: 32px;
+            color: #444444;
+            text-align: center;
+        }
+
+        &--subtitle{
+            max-width: 265px;
+            font-size: 14px;
+            color: #444444;
+            text-align: center;
+            line-height: 16px;
+        }
+
+        &--info{
+            
+        }
+    }
+
+    &__contacts{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 50px 125px 50px;
+        width: 100%;
+        @media(max-width: $md2+px){
+            flex-direction: column;
+            gap: 50px;
+            padding: 60px 0px 38px 0px;
+            border-top: 3px solid #CCCCCC;
+            border-bottom: 3px solid #CCCCCC;
+        }
+    }
+
+    &__item{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        min-width: 240px;
+    }
+
+    &__mail{
+        transform: translateY(200px);
+        opacity: 0;
+        &--img{
+            display: flex;
+            margin: 0px 0px 20px 0px;
+        }
+
+        &--text{
+           @include adaptiv-value('font-size',20,10,1);
+            line-height: 24px;
+            text-align: center;
+            @media(min-width: $md2+px){
+                margin: 0px 0px 5px 0px;
+            }
+
+            color: #CCCCCC;
+        }
+
+        &--link{
+            @include adaptiv-value('font-size',28,14,1);
+            line-height: 34px;
+            text-align: center;
+
+            color: #444444;
+        }
+    }
+
+    &__telephone{
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+
+    &__skype{
+        transform: translateY(200px);
+        opacity: 0;
+    }
+
+    &__links{
+        position: relative;
+        width: 100%;
+        margin: 0px 0px 50px 0px;
+        &::after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: #CCCCCC;
+            top: -3px;
+            left: 0;
+            z-index: 1;
+        }
+
+        @media(max-width: $md2+px){
+            margin: 80px 0px 50px 0px;
+        }
+        &--items{
+            display: flex;
+            justify-content: center;
+        }
+
+        &--item{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include adaptiv-value('width',60,40,1);
+            @include adaptiv-value('height',60,40,1);
+            border: 3px solid #CCCCCC;
+            margin: -3px -1px 0px -2px;
+            transition: .5s ease;
+            z-index: 10;
+
+            @media(any-hover:hover){ 
+                &:hover{
+                    border-color: $yellowColor;
+                    z-index: 15;
+                }
+            }
+
+            &--transform{
+                border: 3px solid #CCCCCC;
+                transform: translateY(-130%);
+                opacity: 0;
+                margin: 0px -1px -3px -2px;;
+            }
+
+            &--img{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+
+                svg{
+                    width: 50%;
+                    height: 50%;
+                    path{
+                        transition: .3s ease;
+                    }
+                }
+
+            }
+
+            &--instagram{
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            &--facebook{
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            &--facebook2{
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            @media(any-hover:hover){ 
+                &:hover{
+                    .footer__links--item{
+                        &--img{
+                            svg{
+                                path{
+                                    fill: $yellowColor;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__copyright{
+        font-size: 20px;
+        color: #444444;
+        p{
+            margin: 0;
+        }
+    }
+}
