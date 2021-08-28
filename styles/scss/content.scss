@@ -239,6 +239,10 @@ $color: #555;
 
     &__inner{
         padding: 0px 0px 160px 0px;
+        
+        @media(max-width: $md3+px){
+            padding: 0px 0px 100px 0px;
+        }
     }
 
     &__title{
@@ -502,6 +506,12 @@ $color: #555;
 }
 
 .achievements{
+    &__container{
+        @media(max-width: $md3+px){
+            padding: 0px;
+        }
+    }
+
     &__inner{
         display: flex;
         flex-direction: column;
@@ -511,15 +521,26 @@ $color: #555;
         display: flex;
         width: 100%;
         justify-content: space-between;
-        @include adaptiv-value('font-size',30,10,1);
         line-height: 37px;
         color: #444444;
         flex: 1;
+        @media(max-width: $md3+px){
+            flex-direction: column;
+        }
         &--title{
             max-width: 400px;
-            margin: 0px 10px 0px 93px;
             transform: translateX(-300px);
+            @include adaptiv-value('font-size',30,20,1);
+            margin: 0px 10px 0px 93px;
             opacity: 0;
+
+            @media(max-width: $md3+px){
+                margin: 0 auto;
+                text-align: center;
+                p{
+                    margin: 0;
+                }
+            }
         }
 
         &--blocks{
@@ -547,6 +568,11 @@ $color: #555;
                 line-height: 17px;
                 color: #000000;
                 opacity: 0;
+
+                @media(max-width: $md3+px){
+                    margin: 0px 0px 0px 40px;
+                    transform: translateY(50%);
+                }
 
                 p{
                     &:nth-child(2){
@@ -634,6 +660,10 @@ $color: #555;
                 transition: .3s ease;
                 cursor: pointer;
 
+                @media(max-width: $md3+px){
+                    display: none;
+                }
+
                 p{
                     margin: 0px 0px 0px 32px;
                 }
@@ -652,19 +682,24 @@ $color: #555;
                     text-align: center;
                     font-family: $font-family-MontserratRegular;
                     margin: 0px 0px 78px 0px;
-                    max-width: 280px;
+                    @include adaptiv-value('max-width',280,230,1);
                     p{
-                        font-size: 60px;
-                        line-height: 73px;
+                        @include adaptiv-value('font-size',60,34,1);
+                        @include adaptiv-value('line-height',73,52,1);
                         text-align: center;
                         color: #B4B4B4;
                         font-family: $font-family-MontserratBold;
                         opacity: 0;
                         transition: .3s ease;
+
+                        &:nth-child(3){
+                            @include adaptiv-value('font-size',14,11,1);
+                            line-height: 16px;
+                            color: #444444;
+                            font-family: $font-family-MontserratRegular;
+                            margin: 0;
+                        }
                     }
-                    font-size: 14px;
-                    line-height: 16px;
-                    color: #444444;
                 }
 
                 &.active{
@@ -683,12 +718,40 @@ $color: #555;
         grid-template-columns: minmax(300px, 560px) minmax(270px, 540px);
         grid-template-rows: 400px 340px 210px;
 
-        @media(max-width: $mp1+px){
+        @media(max-width: $md3+px){
             display: flex;
             flex-direction: column;
         }
 
         &--block{
+            &--info{
+                margin: 100px 0px 0px 0px;
+
+                &-title{
+                    font-family: $font-family-MontserratMedium;
+                    @include adaptiv-value('font-size',22,14,1);
+                    line-height: 17px;
+                    color: #444444;
+                    margin: 0px 0px 0px 40px;
+                }
+
+                &-text{
+                    @include adaptiv-value('font-size',20,14,1);
+                    line-height: 16px;
+                    text-align: center;
+                    color: #444444;
+                    max-width: 280px;
+                    margin: 0 auto;
+
+                    span{
+                        font-family: $font-family-MontserratBold;
+                        @include adaptiv-value('font-size',58,40,1);
+                        line-height: 49px;
+                        color: #404040;
+                    }
+                }
+            }
+
             &--size{
                 &-all{
                     display: flex;
@@ -697,11 +760,13 @@ $color: #555;
                     background-color: #F4F4F4;
                     padding: 0px 0px 50px 0px;
                     opacity: 0;
-                    @media(max-width: $mp1+px){
+                    @media(max-width: $md3+px){
+                        display: block;
+                        position: relative;
                         height: 586px;
                     }
 
-                    @media(max-width: $mp1+px){
+                    @media(max-width: $md3+px){
                         align-items: flex-end;
                     }
                 }
@@ -713,8 +778,9 @@ $color: #555;
                     grid-row: span 2;
                     background-color: $yellowColor;
                     opacity: 0;
-                    @media(max-width: $mp1+px){
-                        height: 380px;
+                    @media(max-width: $md3+px){
+                        min-height: 380px;
+                        max-height: 480px;
                     }
                 }
 
@@ -725,7 +791,7 @@ $color: #555;
                     transition: .3s ease;
                     opacity: 0;
 
-                    @media(max-width: $mp1+px){
+                    @media(max-width: $md3+px){
                         height: 350px;
                     }
 
@@ -826,15 +892,26 @@ $color: #555;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
-                    flex: 0 1 320px;
-                    margin: 0px 80+px 0px 93px;
+                    min-height: 300px;
+                    max-height: 480px;
+                    margin: 20px 80px 20px 93px;
+
+                    @media(max-width: $md3+px){
+                        margin: 20px 60px 20px 73px;
+                    }
+
+                    @media(max-width: $mp1+px){
+                        margin: 13px 30px 13px 43px;
+                    }
 
                     p{
                         max-width: 355px;
                         &:nth-child(1){
                             font-family: $font-family-MontserratMedium;
-                            font-size: 16px;
-                            line-height: 23px;
+                            @include adaptiv-value('font-size',16,14,1);
+                            @media(max-width: $md3+px){
+                                line-height: 19px;
+                            }
                             color: #404040;
                         }
 
@@ -844,7 +921,7 @@ $color: #555;
                             span{
                                 margin: 15px 0px 10px 0px;
                             }
-                            font-size: 14px;
+                            @include adaptiv-value('font-size',14,13,1);
                             line-height: 16px;
                             color: #404040;
                         }
@@ -900,18 +977,46 @@ $color: #555;
     &__slider{
         display: block;
         min-width: 0;
+        transform: translateY(25%);
         @media(min-width: $md3+px){
             display: none;
+        }
+
+        &--wrapper{
+            align-items: flex-end;
         }
 
         &--slide{
             display: flex;
             justify-content: center;
+            align-self: flex-end;
             &--img{
                 img{
                     border-radius: 25px;
                 }
             }
+        }
+
+        &--pagination{
+            left: 50%;
+            transform: translateX(-50%)!important;
+            bottom: -30px!important;
+        }
+
+        .swiper-pagination{
+            display: flex;
+            gap: 5px;
+        }
+
+        .swiper-pagination-bullet{
+            width: 10px;
+            height: 10px;
+            transition: .3s ease;
+        }
+
+        .swiper-pagination-bullet-active{
+            background-color: #636363;
+            
         }
     }
 }

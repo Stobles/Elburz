@@ -1,9 +1,14 @@
 
 new Swiper('.achievements__slider--container',{
-  initialSlide: 2,
+  initialSlide: 1,
   centeredSlides: true,
   slidesPerView: 3,
   loop: true,
+
+  pagination: {
+    el: '.achievements__slider--pagination',
+    dynamicBullets: true,
+  },
 
   breakpoints:{
     0: {
@@ -12,7 +17,7 @@ new Swiper('.achievements__slider--container',{
     }, 
 
     300: {
-      slidesPerView: 1.61
+      slidesPerView: 1.65
     },
 
     380:{
