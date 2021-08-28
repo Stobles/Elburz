@@ -362,3 +362,36 @@ function outNum(num, elem) {
     outNumOneTime = true
 };
 
+
+// Подключение Скриптов на мобильном устройстве //
+
+var oneTime = false
+
+window.addEventListener('resize', ()=>{
+    if (window.innerWidth < 767 && !oneTime) {
+        var scriptBundle = document.createElement('script');
+        scriptBundle.src = 'js/swiper-bundle.js';
+        document.head.appendChild(scriptBundle);
+        var scriptSwiper = document.createElement('script');
+        scriptSwiper.src = 'js/swiper.js';
+        document.head.appendChild(scriptSwiper);
+        console.log(oneTime)
+        oneTime = true
+    }
+})
+
+
+window.addEventListener('load', ()=>{
+    if (window.innerWidth < 767) {
+        var scriptBundle = document.createElement('script');
+        scriptBundle.src = 'js/swiper-bundle.js';
+        document.head.appendChild(scriptBundle);
+        setTimeout(()=>{
+            var scriptSwiper = document.createElement('script');
+            scriptSwiper.src = 'js/swiper.js';
+            document.head.appendChild(scriptSwiper);
+        },100)
+        oneTime = true
+    }
+})
+
