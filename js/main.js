@@ -207,7 +207,7 @@ const instagramH = document.querySelector('.footer__links--item--transform').cli
     gsap.to(".footer__mail", {
         scrollTrigger: {
             trigger: ".footer__mail",
-            start: '-1400'
+            start: '1700'
         },
         y:0,
         opacity: 1,
@@ -217,7 +217,7 @@ const instagramH = document.querySelector('.footer__links--item--transform').cli
     gsap.to(".footer__telephone", {
         scrollTrigger: {
             trigger: ".footer__telephone",
-            start: '-1400'
+            start: '1400'
         },
         y:0,
         opacity: 1,
@@ -228,7 +228,7 @@ const instagramH = document.querySelector('.footer__links--item--transform').cli
     gsap.to(".footer__skype", {
         scrollTrigger: {
             trigger: ".footer__skype",
-            start: '-1400'
+            start: '1100'
         },
         y:0,
         opacity: 1,
@@ -239,7 +239,7 @@ const instagramH = document.querySelector('.footer__links--item--transform').cli
     gsap.to(".footer__links--item--instagram", {
         scrollTrigger: {
             trigger: ".footer__links--item--instagram",
-            start: '-1900'
+            start: '1300'
         },
         y:0,
         opacity: 1,
@@ -250,7 +250,7 @@ const instagramH = document.querySelector('.footer__links--item--transform').cli
     gsap.to(".footer__links--item--facebook", {
         scrollTrigger: {
             trigger: ".footer__links--item--facebook",
-            start: '-1900'
+            start: '1100'
         },
         y:0,
         opacity: 1,
@@ -261,7 +261,7 @@ const instagramH = document.querySelector('.footer__links--item--transform').cli
     gsap.to(".footer__links--item--transform", {
         scrollTrigger: {
             trigger: ".footer__links--item--telegram",
-            start: '-1900'
+            start: '1500'
         },
         y: -instagramH + -6,
         opacity: 1,
@@ -272,7 +272,7 @@ const instagramH = document.querySelector('.footer__links--item--transform').cli
     gsap.to(".footer__links--item--facebook2", {
         scrollTrigger: {
             trigger: ".footer__links--item--facebook2",
-            start: '-1900'
+            start: '1700'
         },
         y:0,
         opacity: 1,
@@ -384,3 +384,22 @@ window.addEventListener('load', ()=>{
     }
 })
 
+// Модальное окно video //
+
+const modalVideo = document.querySelector('.modal__video')
+const modalActivator = document.querySelector('.achievements__body--block--size-right')
+const modalClose = document.querySelector('.modal__video--close')
+const scrollBarWidth = window.innerWidth - document.querySelector('.wrapper').offsetWidth
+
+modalActivator.addEventListener('click', ()=>{
+    modalVideo.classList.add('active')
+    document.body.classList.add('lock')
+    document.body.style.paddingRight = scrollBarWidth + 'px'
+    document.querySelector('.modal__video--link').src = document.querySelector('.video__link').innerHTML
+})
+
+modalClose.addEventListener('click', ()=>{
+    modalVideo.classList.remove('active')
+    document.body.classList.remove('lock')
+    document.body.style.paddingRight = '0px'
+})

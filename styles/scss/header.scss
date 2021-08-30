@@ -168,7 +168,7 @@
             top: 0;
             right: -40%;
             width: 335px;
-            height: 0;
+            height: 0px;
             background: linear-gradient(195.03deg, #4D4D51 -6.72%, #26272C 136.1%);
             @media(min-width: $md4+px){
                 border-radius: 10px;
@@ -177,7 +177,6 @@
             }
             transform-origin: top;
             transition: opacity .3s ease, height .6s ease, visibility .6s ease;
-            transition: .3s ease;
             margin: 0px 20px 0px 0px;
 
             @media(max-width: $md4+px){
@@ -205,6 +204,7 @@
                     padding-left: 20px;
                 }
                 height: 100%;
+                transition: .3s ease;
             }
         }
 
@@ -277,10 +277,13 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                width: 28px;
+                width: 30px;
                 height: 30px;
-                svg{
-                    width: 150%;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    object-position: center;
                 }
                 transition: .3s ease;
                 @media(any-hover:hover){ 

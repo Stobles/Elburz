@@ -139,7 +139,7 @@ gsap.to(".footer__mail", {
 gsap.to(".footer__telephone", {
     scrollTrigger: {
         trigger: ".footer__telephone",
-        start: '-500',
+        start: '-800',
     },
     y: 0,
     opacity: 1,
@@ -200,6 +200,33 @@ gsap.to(".footer__links--item--facebook2", {
     duration: 1,
     delay: .6
 })
+
+// Фильтр по категориям //
+
+const serviceCats = document.querySelectorAll('.service__cat--btn')
+const serviceBlocksCats = document.querySelectorAll('.service__body--item--cat')
+serviceCats.forEach(catBtn => {
+    catBtn.dataset.cat = catBtn.innerHTML
+});
+
+function catsFilterService() {
+    serviceCats.forEach(catBtn => {
+        
+        catBtn.addEventListener('click', ()=>{
+           
+            const cat = catBtn.dataset.cat 
+            serviceBlocksCats.forEach(blockCat => {
+                blockCat.parentNode.classList.remove('hide')
+                console.log('работает')
+                if(!(cat == blockCat.innerHTML)){
+                    blockCat.parentNode.classList.add('hide')
+                }
+            });
+        })
+    });
+}
+
+catsFilterService()
 
 
 

@@ -186,6 +186,7 @@
             row-gap: 17px;
             flex-wrap: wrap;
             padding: 75px 0px 160px 0px;
+            min-height: 535px;
 
             @media(max-width: $md2+px){
                 padding: 40px 0px 10px 0px;
@@ -197,6 +198,7 @@
             flex: 0 1 355px;
             background-color: #444444;
             cursor: pointer;
+            transition: .3s ease;
             @media(any-hover:hover){ 
                 &:hover{
                     .service__body--item--img{
