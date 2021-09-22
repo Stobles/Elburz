@@ -1,12 +1,47 @@
 // Переменные //
-
-$letterSpacing-mainTitle: 30; 
-$letterSpacing-mainSubtitle: 4.7;
 $color: #555;
 
 // Анимация SVG //
 
-.path-line{
+.loaded_hiding .path-line{
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-name: line;
+    animation-duration: 1.5s;
+    animation-delay: 2s;
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+
+    @keyframes line {
+
+        100%{
+            stroke-dashoffset: 0;
+        }
+        
+    }
+
+    &-arrow{
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        animation-name: line-arrow;
+        animation-duration: 1.5s;
+        animation-delay: 2s;
+        stroke-dasharray: 400;
+        stroke-dashoffset: 400;
+        fill: transparent;
+
+        @keyframes line-arrow {
+
+            100%{
+                stroke-dashoffset: 0;
+                fill: #1FFF83;
+            }
+        
+        }
+    }
+}
+
+.path-line-preloader{
     animation-timing-function: linear;
     animation-fill-mode: forwards;
     animation-name: line;
@@ -27,22 +62,83 @@ $color: #555;
         animation-timing-function: linear;
         animation-fill-mode: forwards;
         animation-name: line-arrow;
-        animation-duration: 3s;
+        animation-duration: 1.5s;
         animation-delay: 0s;
         stroke-dasharray: 400;
         stroke-dashoffset: 400;
-        fill: #fff;
 
         @keyframes line-arrow {
 
             100%{
                 stroke-dashoffset: 0;
-                fill: #888888;
+                fill: #1FFF83;
             }
         
         }
     }
 }
+
+.mountain{
+
+    &-first{
+        transform: translateY(-1000px);
+    }
+
+    &-second{
+        transform: translateY(-1000px);
+    }
+
+    &-third{
+        transform: translateY(-1000px);
+    }
+
+    &-fourth{
+        transform: translateY(-1000px);
+    }
+}
+
+.loaded .mountain{
+    &-first{
+        transition: 1s ease;
+        transform: translateY(0px);
+    }
+
+    &-second{
+        transition: 1s ease .3s;
+        transform: translateY(0px);
+    }
+
+    &-third{
+        transition: 1s ease .6s;
+        transform: translateY(0px);
+    }
+
+    &-fourth{
+        transition: 1s ease .9s;
+        transform: translateY(0px);
+    }
+}
+
+.mountain-career{
+            
+    &-first{
+        transform: translateY(1000px);
+    }
+
+    &-second{
+        transform: translateY(1000px);
+    }
+
+    &-third{
+        transform: translateY(1000px);
+    }
+
+    &-fourth{
+        transform: translateY(1000px);
+    }
+}
+
+// Конец Анимаций SVG //
 .content{
     flex: 1;
 }
@@ -52,6 +148,7 @@ $color: #555;
     width: 100vw;
     height: 100vh;
     z-index: -1;
+    background-color: #1b1b1b;
 
     &__inner{
         display: flex;
@@ -59,6 +156,8 @@ $color: #555;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        position: relative;
+        width: 100%;
     }
 
     &__logo{
@@ -67,26 +166,39 @@ $color: #555;
         flex-direction: column;
         align-items: center;
         position: relative;
+        width: 100%;
         &--body{
             display: flex;
+            justify-content: center;
+            align-items: flex-end;
             position: relative;
+            width: 100%;
             @media(min-width: $mp1+px){
                 margin: 0px 0px 25px 0px;
             }
 
             &--mountain{
+                width: 40%;
                 transform: translateX(-20%);
-                @media(min-width: $md2+px){
-                    opacity: 0;
+
+                @media(max-width: $mp1+px){
+                    min-width: 60%;
+                    max-width: 60%;
                 }
-                img{
-                    width: 100%;
-                    height: 100%;
+
+                svg{
+                    overflow: visible;
                 }
             }
 
             &--arrow{
                 transform: translate(24%, 6%);
+                width: 30%;
+
+                @media(max-width: $mp1+px){
+                    min-width: 40%;
+                    max-width: 40%;
+                }
                 
                 svg{
                     width: 97%;
@@ -107,10 +219,20 @@ $color: #555;
             text-align: center;
             letter-spacing: ($letterSpacing-mainTitle - 20) + px;
             padding: 0px 0px 0px 25px;
+            color: #fff;
             @include adaptiv-value('line-height',100,42,1);
 
             @media(min-width: $md3+px){
                 letter-spacing: $letterSpacing-mainTitle + px;
+            }
+
+            @media(max-width: $md4+px){
+                @include adaptiv-value('font-size',135,43,1);
+            }
+
+            .letter {
+                display: inline-block;
+                line-height: 1em;
             }
         }
     }
@@ -130,30 +252,68 @@ $color: #555;
             text-align: center;
             letter-spacing: $letterSpacing-mainTitle + px;
             padding: 0px 0px 0px ($letterSpacing-mainTitle - 5) + px;
+            color: #ffce3c;
 
             @media(max-width: $md3+px){
                 letter-spacing: ($letterSpacing-mainTitle - 20) + px;
                 padding: 0px 0px 0px ($letterSpacing-mainTitle - 25) + px;
             }
-            transform: translateX(-150%);
-            opacity: 0;
+
+            .letter {
+                display: inline-block;
+                line-height: 1em;
+            }
         }
 
         &--subtitle{
             font-family: $font-family-MontserratBold;
             text-align: center;
             letter-spacing: 4.7px;
+            color: #ffce3c;
             @include adaptiv-value('font-size',43,14,1);
-            @media(min-width: $md2+px){
-                transform: translateY(100%);
-                opacity: 0;
-            }
     
             @media(max-width: $md3+px){
                 letter-spacing: 1px;
             }
             @media(max-width: $mp1+px){
                 padding: 5px 0px 0px 0px;
+            }
+
+            .letter {
+                display: inline-block;
+                line-height: 1em;
+              }
+        }
+    }
+
+    &__scroll{
+        &--img{
+            position: absolute;
+            width: 37px;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 30px;
+
+            @media(max-width: $md2+px){
+                bottom: 80px;
+            }
+
+            img{
+                width: 100%;
+                height: 100%;
+            }
+
+            &::after{
+                content: '';
+                position: absolute;
+                top: 25%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 2px;
+                height: 6px;
+                border-radius: 10px;
+                background-color: #aaaaaa;
+                animation: scroll 1.3s infinite forwards;
             }
         }
     }
@@ -321,7 +481,7 @@ $color: #555;
             bottom: -3px;
             right: -3px;
             transform: rotate(180deg) translateX(-100%);
-            transition: .3s ease .6s;
+            transition: width .3s ease .6s;
         }
 
         &.active{
@@ -375,6 +535,15 @@ $color: #555;
                 height: 198px;
                 background: linear-gradient(172.5deg, #585859 5.81%, #26272C 121.02%);
 
+                transition: 1s ease;
+                transform: translateY(100px);
+                opacity: 0;
+
+                &.active{
+                    transform: translateY(0px);
+                    opacity: 1;
+                }
+
                 @media(max-width: $mp1+px){
                     width: 100%;
                 }
@@ -415,19 +584,12 @@ $color: #555;
                 position: absolute;
                 width: 100%;
                 height: 100%;
+                background-size: cover;
+                background-repeat: no-repeat;
                 background-image: url(../../img/featured/background.png);
                 z-index: 1;
-
-                &--clone{
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    background: #c5ab5c url(../../img/featured/background.png);
-                    z-index: 5;
-                    background-blend-mode: difference;
-                    opacity: 0;
-                    transition: .5s ease;
-                }
+                opacity: 1;
+                transition: .3s ease;
             }
 
 
@@ -443,6 +605,12 @@ $color: #555;
                     grid-column: 2;
                     transform: translateY(30%);
                     opacity: 0;
+                    transition: 1s ease;
+
+                    &.active{
+                        transform: translateY(0%);
+                        opacity: 1;
+                    }
                 }
 
                 &-right{
@@ -451,6 +619,13 @@ $color: #555;
                     grid-row: span 2;
                     transform: translateY(20%);
                     opacity: 0;
+
+                    transition: 1s ease .3s;
+
+                    &.active{
+                        transform: translateY(0%);
+                        opacity: 1;
+                    }
                 }
             }
 
@@ -480,23 +655,10 @@ $color: #555;
                 }
             }
 
-            &::after{
-                content: '';
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                background-color: hsla(45, 95%, 68%, 0.65);
-                opacity: 0;
-                transition: .6s ease;
-            }
-
             @media(any-hover:hover){ 
                 &:hover{
-                    &::after{
-                        opacity: 1;
-                    }
-                    .img__background--clone{
-                        opacity: 1;
+                    .img__background{
+                        opacity: .7;
                     }
 
                     .featured__body--item--text{
@@ -534,10 +696,13 @@ $color: #555;
             max-width: 400px;
             @include adaptiv-value('font-size',30,20,1);
             margin: 0px 10px 0px 93px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: opacity 1s ease, transform 1s ease;
 
-            @media(min-width: $md2+px){
-                transform: translateX(-300px);
-                opacity: 0;
+            &.active{
+                transform: translateY(0px);
+                opacity: 1;
             }
 
             @media(max-width: $md3+px){
@@ -573,8 +738,11 @@ $color: #555;
                 font-size: 20px;
                 line-height: 17px;
                 color: #000000;
-                @media(min-width: $md2+px){
-                    opacity: 0;
+                opacity: 0;
+                transition: opacity 1s ease;
+
+                &.active{
+                    opacity: 1;
                 }
 
                 @media(max-width: $md3+px){
@@ -627,7 +795,7 @@ $color: #555;
                     bottom: -3px;
                     right: -3px;
                     transform: rotate(180deg) translateX(-100%);
-                    transition: .3s ease .6s;
+                    transition: width .3s ease .6s;
                 }
 
                 &.active{
@@ -724,7 +892,13 @@ $color: #555;
     &__body{
         display: grid;
         grid-template-columns: minmax(300px, 560px) minmax(270px, 540px);
-        grid-template-rows: 400px 340px 210px;
+        grid-template-rows: minmax(400px,1fr) 340px 210px;
+        
+        &.active{
+            .achievements__body--block--size-left{
+                opacity: 1;
+            }
+        }
 
         @media(max-width: $md3+px){
             display: flex;
@@ -734,7 +908,7 @@ $color: #555;
         &--block{
             &--info{
                 display: block;
-                margin: 100px 0px 0px 0px;
+                margin: 100px 0px 20px 0px;
 
                 @media(min-width: $md3+px){
                     display: none;
@@ -771,8 +945,13 @@ $color: #555;
                     align-items: center;
                     grid-column: span 2;
                     background-color: #F4F4F4;
-                    padding: 0px 0px 50px 0px;
+                    padding: 50px 0px 50px 0px;
                     opacity: 0;
+                    transition: 1s ease;
+                    &.active{
+                        opacity: 1;
+
+                     }
                     @media(max-width: $md3+px){
                         display: block;
                         position: relative;
@@ -791,6 +970,11 @@ $color: #555;
                     grid-row: span 2;
                     background-color: $yellowColor;
                     opacity: 0;
+                    transition: 1s ease;
+                    &.active{
+                        opacity: 1;
+                    }
+
                     @media(max-width: $md3+px){
                         min-height: 380px;
                         max-height: 480px;
@@ -803,6 +987,12 @@ $color: #555;
                     cursor: pointer;
                     transition: .3s ease;
                     opacity: 0;
+                    transition: 1s ease .4s;
+
+                    &.active{
+                        opacity: 1;
+
+                    }
 
                     @media(max-width: $md3+px){
                         height: 350px;
@@ -877,11 +1067,12 @@ $color: #555;
                 display: none;
                 @media(min-width: $md3+px){
                     display: flex;
+                    flex-wrap: wrap;
                 }
-                justify-content: space-between;
+                justify-content: center;
                 flex: 0 1 730px;
                 margin: 0 auto;
-                @media(max-width: $md2+px){
+                @media(max-width: $md3+px){
                     padding: 0px 15px;
                 }
             }
@@ -892,6 +1083,22 @@ $color: #555;
                 border-radius: 27px;
                 transition: .3s ease-in-out;
                 cursor: pointer;
+
+                @media(min-width: $md3+px){
+                    margin:0px 30px 30px 0px;
+                    &:nth-child(3){
+                        margin: 0px 0px 30px 0px;
+                    }
+
+                    &:nth-child(6){
+                        margin: 0px 0px 30px 0px;
+                    }
+
+                    &:nth-child(9){
+                        margin: 0px 0px 30px 0px;
+                    }
+                    
+                }
 
                 @media(any-hover:hover){ 
                     &:hover{
@@ -990,7 +1197,7 @@ $color: #555;
     &__slider{
         display: block;
         min-width: 0;
-        transform: translateY(25%);
+        padding: 0px 0px 50px 0px;
         @media(min-width: $md3+px){
             display: none;
         }
@@ -1071,15 +1278,19 @@ $color: #555;
         line-height: 39px;
         color: #444444;
         padding: 0px 10px 55px 10px;
-        transform: translateX(-200px);
+        transform: translateY(100px);
         opacity: 0;
+        transition: 1s ease;
+
+        &.active{
+            transform: translateY(0px);
+            opacity: 1;
+        }
 
         @media(max-width: $md3+px){
             max-width: 270px;
             text-align: center;
             margin: 0 auto;
-            transform: translateX(0px)!important;
-            opacity: 1!important;
         }
     }
 
@@ -1156,7 +1367,7 @@ $color: #555;
                 bottom: -3px;
                 right: -3px;
                 transform: rotate(180deg) translateX(-100%);
-                transition: .3s ease .6s;
+                transition: width .3s ease .6s;
             }
     
             &.active{
@@ -1188,7 +1399,12 @@ $color: #555;
             min-height: 430px;
             background: $yellowColor;
             opacity: 0;
+            transition: opacity 1s ease;
             padding: 0px 30px;
+
+            &.active{
+                opacity: 1;
+            }
 
             @media(max-width: $md3+px){
                 min-height: 330px;
@@ -1363,7 +1579,7 @@ $color: #555;
             bottom: -3px;
             right: -3px;
             transform: rotate(180deg) translateX(-100%);
-            transition: .3s ease .6s;
+            transition: width .3s ease .6s;
         }
 
         &.active{
@@ -1392,6 +1608,70 @@ $color: #555;
         background: linear-gradient(172.5deg, #343434 5.81%, #26272C 121.02%);
         z-index: 1;
         opacity: 0;
+        transition: opacity 1s ease;
+
+        &.active{
+            opacity: 1;
+
+            .path-line-career{
+                animation-timing-function: linear;
+                animation-fill-mode: forwards;
+                animation-name: line;
+                animation-duration: 1.5s;
+                animation-delay: .5s;
+                stroke-dasharray: 400;
+                stroke-dashoffset: 400;
+            
+                @keyframes line {
+            
+                    100%{
+                        stroke-dashoffset: 0;
+                    }
+                    
+                }
+            
+                &-arrow{
+                    animation-timing-function: linear;
+                    animation-fill-mode: forwards;
+                    animation-name: line-arrow;
+                    animation-duration: 1.5s;
+                    animation-delay: .5s;
+                    stroke-dasharray: 400;
+                    stroke-dashoffset: 400;
+            
+                    @keyframes line-arrow {
+            
+                        100%{
+                            stroke-dashoffset: 0;
+                            fill: #1FFF83;
+                        }
+                    
+                    }
+                }
+            }
+            
+            .mountain-career{
+                &-first{
+                    transition: 1s ease;
+                    transform: translateY(0px);
+                }
+            
+                &-second{
+                    transition: 1s ease .5s;
+                    transform: translateY(0px);
+                }
+            
+                &-third{
+                    transition: 1s ease 1s;
+                    transform: translateY(0px);
+                }
+            
+                &-fourth{
+                    transition: 1s ease 1.5s;
+                    transform: translateY(0px);
+                }
+            }
+        }
 
         @media(max-width: $md2+px){
             background: #242424;
@@ -1401,6 +1681,7 @@ $color: #555;
         &--inner{
             display: flex;
             justify-content: center;
+            align-items: center;
             flex: 1;
             padding: 0px 70px 0px 93px;
 
@@ -1443,7 +1724,6 @@ $color: #555;
 
             &--btn{
                 display: flex;
-                gap: 10px;
                 align-items: center;
 
                 @media(any-hover:hover){ 
@@ -1465,6 +1745,7 @@ $color: #555;
                     background-color: #979797;
                     position: relative;
                     transition: .3s ease;
+                    margin: 0px 0px 0px 10px;
 
                     &::before{
                         content: '';
@@ -1559,6 +1840,30 @@ $color: #555;
                 }
             }
         }
+
+        &--arrow{
+            display: inline-block;
+            align-self: flex-end;
+            transform: translateX(10%);
+            svg{
+                width: 90%;
+                height: 90%;
+                object-position: bottom;
+
+            }
+        }
+
+        &--mountain{
+            display: inline-block;
+            align-self: flex-end;
+            transform: translateX(-50%);
+            svg{
+                width: 140%;
+                height: 140%;
+                object-position: bottom;
+                
+            }
+        }
     }
 }
 
@@ -1578,7 +1883,6 @@ $color: #555;
         display: flex;
         justify-content: center;
         align-items: flex-end;
-        gap: 20px;
         transform: translateY(50%);
         &--block{
             display: flex;
@@ -1645,7 +1949,7 @@ $color: #555;
                 bottom: -3px;
                 right: -3px;
                 transform: rotate(180deg) translateX(-100%);
-                transition: .3s ease .6s;
+                transition: width .3s ease .6s;
             }
     
             &.active{
@@ -1670,7 +1974,6 @@ $color: #555;
         &--see{
             display: flex;
             align-items: center;
-            gap: 8px;
             @include adaptiv-value('font-size',20,16,1);
             line-height: 24px;
             text-decoration-line: underline;
@@ -1678,6 +1981,7 @@ $color: #555;
             margin: 0px 0px 20px 0px;
             font-family: $font-family-MontserratMedium;
             cursor: pointer;
+            padding: 0px 0px 0px 15px;
 
             @media(any-hover:hover){ 
                 &:hover{
@@ -1703,6 +2007,7 @@ $color: #555;
                     background-color: #979797;
                     position: relative;
                     transition: .3s ease;
+                    margin: 0px 0px 0px 10px;
 
                     &::before{
                         content: '';
@@ -1748,8 +2053,13 @@ $color: #555;
         &--inner{
             display: flex;
             justify-content: center;
-            gap: 50px;
             padding: 0px 0px 60px 0px;
+
+            a{
+                &:not(:last-child){
+                    margin:0px 0px 18px 0px;
+                }
+            }
 
             @media(max-width: $md2+px){
                 padding: 110px 0px 60px 0px;
@@ -1763,11 +2073,23 @@ $color: #555;
             grid-template-rows: 63px 28px;
             column-gap: 15px;
             cursor: pointer;
+            @media(max-width: $md2+px){
+                &:not(:last-child){
+                    margin:0px 0px 30px 0px;
+                }
+            }
 
             &--img{
                 border-radius: 15px;
                 overflow: hidden;
                 grid-row: span 2;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
             }
 
             &--description{
@@ -1781,6 +2103,7 @@ $color: #555;
                 -webkit-line-clamp: 4;
                 -webkit-box-orient: vertical;
                 height: 63px;
+                color: #404040;
                 
                 p{
                     margin: 0;
@@ -1790,6 +2113,7 @@ $color: #555;
                     -webkit-line-clamp: 4;
                     -webkit-box-orient: vertical;
                     height: 63px;
+                    color: #404040;
                 }
             }
 
@@ -1816,6 +2140,7 @@ $color: #555;
 .modal{
     z-index: 10000000000000;
     &__video{
+        display: none;
         position: fixed;
         width: 100%;
         top: 0;
@@ -1844,7 +2169,7 @@ $color: #555;
         }
 
         &.active{
-            transform: scale(1);
+            display: flex;
         }
 
 
@@ -1893,6 +2218,22 @@ $color: #555;
             }
         }
     }
+}
+
+
+// Анимации //
+
+@keyframes scroll {
+    0%{
+        opacity: 1;
+        top: 25%;
+    }
+
+    100%{
+        opacity: 0;
+        top: 65%;
+    }
+    
 }
 
 

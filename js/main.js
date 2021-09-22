@@ -1,23 +1,3 @@
-const headerLogo = document.querySelector('.header__logo')
-window.addEventListener('load', ()=>{
-    const widthOfWindow = window.innerWidth
-    if(widthOfWindow < 992){
-        headerLogo.classList.remove('ibg')
-    }
-    else{
-        headerLogo.classList.add('ibg')
-    }
-})
-window.addEventListener('resize', ()=>{
-    const widthOfWindow = window.innerWidth
-    if(widthOfWindow < 992){
-        headerLogo.classList.remove('ibg')
-    }
-    else{
-        headerLogo.classList.add('ibg')
-    }
-})
-
 const innerW = window.innerWidth
 const innovate = document.querySelector('.innovate')
 const innovateH = innovate.clientHeight
@@ -76,210 +56,7 @@ document.addEventListener('click', (e)=>{
         burger.classList.remove('active')
     }
 })
-
-// GSAP //
-gsap.registerPlugin(ScrollTrigger)
-
-const instagramH = document.querySelector('.footer__links--item--transform').clientHeight
-
-    gsap.to(".main__info--title", {
-        scrollTrigger: {
-            trigger: ".main__info--title",
-        },
-        x: 0,
-        opacity: 1,
-        duration: 1,
-    })
-
-    gsap.to(".main__info--subtitle", {
-        scrollTrigger: {
-            trigger: ".main__info--subtitle",
-        },
-        y: 0,
-        opacity: 1,
-        duration: 1,
-    })
-
-    gsap.to(".main__logo--body--mountain", {
-        scrollTrigger: {
-            trigger: ".main__logo--body--mountain",
-        },
-        opacity: 1,
-        duration: 1,
-    })
-
-    gsap.to(".featured__body--item--size-left", {
-        scrollTrigger: {
-            trigger: ".featured__body--item--size-left",
-            start: '-1500',
-        },
-        y: 0,
-        opacity: 1,
-        duration: 1,
-    })
-
-    gsap.to(".featured__body--item--size-right", {
-        scrollTrigger: {
-            trigger: ".featured__body--item--size-right",
-            start: '-1500',
-        },
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        delay: .4
-    })
-
-    gsap.to(".achievements__info--title", {
-        scrollTrigger: {
-            trigger: ".achievements__info--title",
-            start: '-1600'
-        },
-        x: 0,
-        opacity: 1,
-        duration: 1,
-    })
-
-    gsap.to(".achievements__info--block--main", {
-        scrollTrigger: {
-            trigger: ".achievements__info--block--main",
-            start: '-1600',
-        },
-        opacity: 1,
-        duration: 1,
-    })
-
-    gsap.to(".achievements__body--block--size-all", {
-        scrollTrigger: {
-            trigger: ".achievements__body--block--size-all",
-            start: '-1660',
-        },
-        opacity: 1,
-        duration: 1,
-    })
-
-    gsap.to(".achievements__body--block--size-left", {
-        scrollTrigger: {
-            trigger: ".achievements__body--block--size-left",
-            start: '-1680',
-        },
-        opacity: 1,
-        duration: 1,
-    })
-
-    gsap.to(".achievements__body--block--size-right", {
-        scrollTrigger: {
-            trigger: ".achievements__body--block--size-right",
-            start: '-1680',
-        },
-        opacity: 1,
-        duration: 1,
-        delay: .4,
-    })
-
-    gsap.to(".inquire__title", {
-        scrollTrigger: {
-            trigger: ".inquire__title",
-            start: '-1300'
-        },
-        x: 200,
-        opacity: 1,
-        duration: 1,
-    })
-
-    gsap.to(".inquire__body--content", {
-        scrollTrigger: {
-            trigger: ".inquire__body--content",
-            start: '-1500'
-        },
-        opacity: 1,
-        duration: 1,
-    })
-
-    gsap.to(".career__body", {
-        scrollTrigger: {
-            trigger: ".career__body",
-            start: '-1500'
-        },
-        opacity: 1,
-        duration: 1,
-    })
-
-    gsap.to(".footer__mail", {
-        scrollTrigger: {
-            trigger: ".footer__mail",
-            start: '1700'
-        },
-        y:0,
-        opacity: 1,
-        duration: 1,
-    })
-
-    gsap.to(".footer__telephone", {
-        scrollTrigger: {
-            trigger: ".footer__telephone",
-            start: '1400'
-        },
-        y:0,
-        opacity: 1,
-        duration: 1,
-        delay: .2
-    })
-
-    gsap.to(".footer__skype", {
-        scrollTrigger: {
-            trigger: ".footer__skype",
-            start: '1100'
-        },
-        y:0,
-        opacity: 1,
-        duration: 1,
-        delay: .4
-    })
-
-    gsap.to(".footer__links--item--instagram", {
-        scrollTrigger: {
-            trigger: ".footer__links--item--instagram",
-            start: '1300'
-        },
-        y:0,
-        opacity: 1,
-        duration: 1,
-        delay: .2
-    })
-
-    gsap.to(".footer__links--item--facebook", {
-        scrollTrigger: {
-            trigger: ".footer__links--item--facebook",
-            start: '1100'
-        },
-        y:0,
-        opacity: 1,
-        duration: 1,
-        delay: .4
-    })
-
-    gsap.to(".footer__links--item--transform", {
-        scrollTrigger: {
-            trigger: ".footer__links--item--telegram",
-            start: '1500'
-        },
-        y: -instagramH + -6,
-        opacity: 1,
-        duration: 1,
-        delay: .6
-    })
-
-    gsap.to(".footer__links--item--facebook2", {
-        scrollTrigger: {
-            trigger: ".footer__links--item--facebook2",
-            start: '1700'
-        },
-        y:0,
-        opacity: 1,
-        duration: 1,
-        delay: .8
-    })
-
+  
 // Скрипт анимации 
 
 const animItems = document.querySelectorAll('.anim__items');
@@ -291,7 +68,7 @@ if (animItems.length > 0) {
             const animItem = animItems[i];
             const animItemHeight = animItem.offsetHeight;
             const animItemOffset = offset(animItem).top;
-            const animStart = 1;
+            const animStart = 3;
 
 
             let animItemPoint = window.innerHeight - animItemHeight / animStart;
@@ -353,6 +130,57 @@ function outNum(num, elem) {
     outNumOneTime = true
 };
 
+// Анимация текста в главном блоке //
+
+document.addEventListener("DOMContentLoaded", () => setTimeout(function(){
+    var mainSubtitle = document.querySelector('.main__info--subtitle');
+        var mainTitle = document.querySelector('.main__info--title');
+        var mainTitleMobile = document.querySelector('.main__logo--title');
+        mainSubtitle.innerHTML = mainSubtitle.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+        mainTitle.innerHTML = mainTitle.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+        mainTitleMobile.innerHTML = mainTitleMobile.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+        anime.timeline({loop: false})
+        .add({
+            targets: '.main__info--title .letter',
+            scale: [4,1],
+            opacity: [0,1],
+            translateZ: 0,
+            easing: "easeOutExpo",
+            duration: 2000,
+            delay: (el, i) => 70*i
+        }).add({
+            targets: '.main__info--subtitle .letter',
+            translateX: [40,0],
+            translateZ: 0,
+            opacity: [0,1],
+            easing: "easeOutExpo",
+            duration: 2000,
+            delay: (el, i) => 700 + 30 * i
+        })
+
+        if(window.innerWidth < 680){
+            anime.timeline({loop: false})
+            .add({
+                targets: '.main__logo--title .letter',
+                scale: [4,1],
+                opacity: [0,1],
+                translateZ: 0,
+                easing: "easeOutExpo",
+                duration: 2000,
+                delay: (el, i) => 70*i
+            }).add({
+                targets: '.main__info--subtitle .letter',
+                translateX: [40,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 2000,
+                delay: (el, i) => 700 + 30 * i
+            });
+        }
+}, 1000));  
+
 // Подключение Скриптов на мобильном устройстве //
 
 var oneTime = false
@@ -384,22 +212,36 @@ window.addEventListener('load', ()=>{
     }
 })
 
-// Модальное окно video //
+// Preloader //
+var preloaderText = document.querySelector('.preloader__inner h2')
 
-const modalVideo = document.querySelector('.modal__video')
-const modalActivator = document.querySelector('.achievements__body--block--size-right')
-const modalClose = document.querySelector('.modal__video--close')
-const scrollBarWidth = window.innerWidth - document.querySelector('.wrapper').offsetWidth
+preloaderText.innerHTML = preloaderText.textContent.replace(/\S/g, "<span class='char'>$&</span>");
 
-modalActivator.addEventListener('click', ()=>{
-    modalVideo.classList.add('active')
-    document.body.classList.add('lock')
-    document.body.style.paddingRight = scrollBarWidth + 'px'
-    document.querySelector('.modal__video--link').src = document.querySelector('.video__link').innerHTML
+document.addEventListener("DOMContentLoaded", () => setTimeout(function(){
+    document.body.classList.add('loaded_hiding');
+    window.setTimeout(function () {
+      document.body.classList.add('loaded');
+    }, 500)
+}, 1000));
+
+// Изменение цвета burger //
+const burgerBodySpan = document.querySelectorAll('.header__burger--body span');
+const burgerName = document.querySelector('.header__burger--name');
+
+window.addEventListener('scroll', ()=>{
+    if(window.scrollY > window.innerHeight + document.querySelector('.innovate').clientHeight){
+        burgerBodySpan.forEach(span => {
+            span.style.backgroundColor = '#000000';
+        });
+        burgerName.style.color = '#000000';
+    }
+
+    if(!(window.scrollY > window.innerHeight + document.querySelector('.innovate').clientHeight)){
+        burgerBodySpan.forEach(span => {
+            span.style.backgroundColor = '#fff'
+        });
+        burgerName.style.color = '#fff';
+    }
 })
 
-modalClose.addEventListener('click', ()=>{
-    modalVideo.classList.remove('active')
-    document.body.classList.remove('lock')
-    document.body.style.paddingRight = '0px'
-})
+

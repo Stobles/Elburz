@@ -91,115 +91,43 @@ if (animItems.length > 0) {
 
 // GSAP-Анимации //
 
-gsap.registerPlugin(ScrollTrigger)
+document.addEventListener("DOMContentLoaded", () => setTimeout(function(){
+    gsap.registerPlugin(ScrollTrigger)
 
-gsap.to(".service__title--text", {
-    x:0,
-    opacity: 1,
-    duration: 1,
-})
+    gsap.to(".service__title--text", {
+        y:0,
+        opacity: 1,
+        duration: 1.3,
+    })
 
-gsap.to(".service__title--cats--item-first", {
-    y:0,
-    opacity: 1,
-    duration: 1,
-})
+    gsap.to(".service__title--cats--item-first", {
+        y:0,
+        opacity: 1,
+        duration: 1,
+        delay: .2
+    })
 
-gsap.to(".service__title--cats--item-second", {
-    y:0,
-    opacity: 1,
-    duration: 1,
-    delay: .2
-})
+    gsap.to(".service__title--cats--item-second", {
+        y:0,
+        opacity: 1,
+        duration: 1,
+        delay: .4
+    })
 
-gsap.to(".service__title--cats--item-third", {
-    y:0,
-    opacity: 1,
-    duration: 1,
-    delay: .4
-})
+    gsap.to(".service__title--cats--item-third", {
+        y:0,
+        opacity: 1,
+        duration: 1,
+        delay: .6
+    })
 
-gsap.to(".service__body", {
-    opacity: 1,
-    duration: 1.3,
-    delay: .3
-})
+    gsap.to(".service__body", {
+        opacity: 1,
+        duration: 1.3,
+        delay: .3
+    })
 
-
-gsap.to(".footer__mail", {
-    scrollTrigger: {
-        trigger: ".footer__mail",
-        start: '-900',
-    },
-    y: 0,
-    opacity: 1,
-    duration: 1,
-})
-
-gsap.to(".footer__telephone", {
-    scrollTrigger: {
-        trigger: ".footer__telephone",
-        start: '-800',
-    },
-    y: 0,
-    opacity: 1,
-    duration: 1,
-    delay: .2
-})
-
-gsap.to(".footer__skype", {
-    scrollTrigger: {
-        trigger: ".footer__skype",
-        start: '-900',
-    },
-    y: 0,
-    opacity: 1,
-    duration: 1,
-    delay: .4
-})
-
-gsap.to(".footer__links--item--instagram", {
-    scrollTrigger: {
-        trigger: ".footer__links--item--instagram",
-        start: '-860',
-    },
-    y: 0,
-    opacity: 1,
-    duration: 1,
-})
-
-gsap.to(".footer__links--item--facebook", {
-    scrollTrigger: {
-        trigger: ".footer__links--item--facebook",
-        start: '-860',
-    },
-    y: 0,
-    opacity: 1,
-    duration: 1,
-    delay: .2
-})
-
-gsap.to(".footer__links--item--telegram", {
-    scrollTrigger: {
-        trigger: ".footer__links--item--telegram",
-        start: '-760',
-    },
-    y: -60,
-    opacity: 1,
-    duration: 1,
-    delay: .4
-})
-
-gsap.to(".footer__links--item--facebook2", {
-    scrollTrigger: {
-        trigger: ".footer__links--item--facebook2",
-        start: '-860',
-    },
-    y: 0,
-    opacity: 1,
-    duration: 1,
-    delay: .6
-})
+}, 1000));
 
 // Фильтр по категориям //
 
@@ -227,6 +155,18 @@ function catsFilterService() {
 }
 
 catsFilterService()
+
+// Preloader //
+var preloaderText = document.querySelector('.preloader__inner h2')
+
+preloaderText.innerHTML = preloaderText.textContent.replace(/\S/g, "<span class='char'>$&</span>");
+
+document.addEventListener("DOMContentLoaded", () => setTimeout(function(){
+    document.body.classList.add('loaded_hiding');
+    window.setTimeout(function () {
+      document.body.classList.add('loaded');
+    }, 500)
+}, 1000));
 
 
 
